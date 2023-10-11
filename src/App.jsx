@@ -1,12 +1,17 @@
-import "./App.css";
-import Login from "./components/Login";
+import { Box, Button, MantineProvider } from "@mantine/core";
+import Login from "./components/Login/Login";
+import "@mantine/core/styles.css";
+import Home from "./components/Home/Home";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <h1>Login Component</h1>
-      <Login />
-    </>
+    <MantineProvider defaultColorScheme="auto">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </MantineProvider>
   );
 }
 
