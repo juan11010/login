@@ -13,13 +13,14 @@ const LoginLogic = () => {
     validate: joiResolver(loginSchema),
   });
 
-  const { mutate, isLoading, data } = useLogin();
+  const { mutate, isLoading } = useLogin();
+
   const handleLogin = form.onSubmit((body) =>
     mutate(body, { onSuccess, onError }),
   );
 
-  const onSuccess = () => console.log(data.message);
-  const onError = () => console.log("LOGIN FAILED");
+  const onSuccess = () => console.log("login successful");
+  const onError = () => console.log("login failed");
 
   return { form, handleLogin, isLoading };
 };
